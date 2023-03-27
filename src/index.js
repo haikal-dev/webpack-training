@@ -1,11 +1,10 @@
-import generateJoke from "./generateJoke";
-import './styles/main.scss';
-import $ from './js/jquery';
+const run = require('./app');
+const AlertService = require('./alert.service');
+const CalculatorService = require('./calculator.service');
+const JokesService = require('./jokes.service');
 
-console.log(generateJoke());
+const alertService = new AlertService();
+const calculatorService = new CalculatorService();
+const jokesService = new JokesService();
 
-$(document).ready(function(){
-    $('#app').html(`
-        <h1>` + generateJoke() + `</h1>
-    `);
-});
+run(alertService, calculatorService, jokesService);
